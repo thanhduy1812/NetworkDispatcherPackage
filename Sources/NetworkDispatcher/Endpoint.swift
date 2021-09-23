@@ -7,12 +7,16 @@
 
 import Foundation
 
+public protocol EnvironmentProtocol {
+    var serviceBaseUrl:String { get }
+}
+
 public struct Endpoint {
     var path: String
-    var environment: Environment!
+    var environment: EnvironmentProtocol!
     var queryItems: [URLQueryItem] = []
     
-    public init(path: String = "", environment: Environment, queryItems: [URLQueryItem] = []) {
+    public init(path: String = "", environment: EnvironmentProtocol, queryItems: [URLQueryItem] = []) {
         self.path = path
         self.environment = environment
         self.queryItems = queryItems

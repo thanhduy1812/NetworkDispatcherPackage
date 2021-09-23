@@ -8,5 +8,8 @@
 import Foundation
 
 public protocol BaseService {
-    init(networkRequest: Requestable, environment: Environment)
+    var networkRequest: Requestable! { get }
+    var environment: EnvironmentProtocol! { get }
+    init(networkRequest: Requestable, environment: EnvironmentProtocol)
+
 }
